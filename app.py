@@ -4,10 +4,10 @@ from speech import recognize_from_microphone, synthetise_speech
 
 from utils import generate_story, load_api_keys, language2code
 
-language = 'Italian'
-gender = 'male'
+language = 'Portuguese'
+gender = 'female'
 model_name = 'gpt-3.5-turbo'
-temperature = 0.8
+temperature = 1
 
 load_api_keys()
 openai_api_kei = os.environ.get('OPENAI_API_KEY')
