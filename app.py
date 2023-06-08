@@ -1,10 +1,10 @@
 import os
 
 from speech import recognize_from_microphone, synthetise_speech
-
 from utils import generate_story, load_api_keys, language2code
 
-language = 'Portuguese'
+
+language = 'Italian'
 gender = 'female'
 model_name = 'gpt-3.5-turbo'
 temperature = 1

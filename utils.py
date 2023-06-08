@@ -26,9 +26,9 @@ def language2voice(language,gender):
     In case no mapping is found, the voice is set to 'en-US-JennyNeural'.
     """
     if language == 'Italian' and gender == 'male':
-        voice = 'it-IT-BenignoNeural'
+        voice = 'it-IT-CalimeroNeural'
     elif language == 'Italian' and gender == 'female':
-        voice = 'it-IT-ElsaNeural'
+        voice = 'it-IT-PierinaNeural'
     elif language == 'Swiss German' and gender == 'male':
         voice = 'de-CH-JanNeural'
     elif language == 'Swiss German' and gender == 'female':
