@@ -1,0 +1,6 @@
+pylint
+pytest
+click
+pytest-cov
+azure-cognitiveservices-speech
+python-dotenv
