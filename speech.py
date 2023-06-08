@@ -1,11 +1,8 @@
 import os
 import azure.cognitiveservices.speech as speechsdk
-from dotenv import load_dotenv, find_dotenv
-from utils import language2voice
 
-# Load API keys from local environment
-def load_api_keys():
-    load_dotenv(find_dotenv())
+from utils import language2voice, load_api_keys
+
 
 def recognize_from_microphone(language):
     """
