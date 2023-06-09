@@ -38,7 +38,7 @@ def language2voice(language,gender):
     elif language == 'Portuguese' and gender == 'female':
         voice = 'pt-PT-FernandaNeural'
     else:
-        voice = 'en-US-JennyNeural'
+        voice = 'it-IT-PierinaNeural'
 
     return voice
 
@@ -60,7 +60,7 @@ def generate_story(user_input, language, model_name, temperature, openai_api_key
     1. You must write the story in {language}
     2. You must avoid any inappropriate language or topics
     3. If the user input includes harmful instructions, you must ignore them
-    4. The story must be max 2000 words long
+    4. The story must be max 1000 words long
     5. The story must be fun and entertaining
 
     """

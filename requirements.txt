@@ -1,10 +1,9 @@
 pylint
 pytest
-click
-black
 pytest-cov
+click
 azure-cognitiveservices-speech
 python-dotenv
-streamlit
 langchain
 openai
+flask

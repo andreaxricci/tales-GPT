@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <meta name="description" content="Digitize and Translate your notes with Azure Cognitive Services and Python.">
+    <title>talesGPT</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="title">talesGPT</h1>
+            <h2 id="description">Story</h2>
+        </div>
+        <div class="results">
+            <div>
+                <p><strong>Original text:</strong> </p>
+                <p>{{ original_text }}</p>
+            </div>
+            <div>
+                <p><strong>Story:</strong> </p>
+                <p>{{ story }}</p>
+            </div>
+            <div>
+                <a href="{{ url_for('index') }}">Try another one!</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Created by Andrea Ricci</p>
+    </div>
+</body>
+</html>
