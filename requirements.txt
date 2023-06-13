@@ -6,5 +6,5 @@ azure-cognitiveservices-speech
 python-dotenv
 langchain
 openai
-flask
+streamlit
 black

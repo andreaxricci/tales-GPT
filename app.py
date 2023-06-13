@@ -1,52 +1,83 @@
 import os
 
-from flask import Flask, request, render_template
+import streamlit as st
 
 from speech import recognize_from_microphone, synthetise_speech
 from utils import generate_story, load_api_keys, language2code
 
 
-#language = 'Portuguese'
-#gender = 'male'
-#model_name = 'gpt-3.5-turbo'
+language = 'Portuguese'
+gender = 'male'
+model_name = 'gpt-3.5-turbo'
 temperature = 1
 
 load_api_keys()
 openai_api_kei = os.environ.get('OPENAI_API_KEY')
 
-#user_input = recognize_from_microphone(language2code(language))
 
-#story = generate_story(user_input, language, model_name, temperature, openai_api_kei)
+def main() -> None:
+     
+    st.set_page_config(page_title="talesGPT", page_icon=":heart:")
+    st.subheader("Tell me a story")
 
-#print(story)
+    if "button1" not in st.session_state:
+        st.session_state["button1"] = False        
+    
+    if "button2" not in st.session_state:
+        st.session_state["button2"] = False
 
-#synthetise_speech(story, language, gender)
+    if "button3" not in st.session_state:
+        st.session_state["button3"] = False
 
-app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+    if st.button("Button1"):
+        # toggle button1 session state  
+        st.session_state["button1"] = not st.session_state["button1"]
+        try:
+            with st.spinner("Recording audio..."):
+                # Trigger audio recording
+                user_input = recognize_from_microphone(language2code(language))
+                st.write(user_input)
+    
+        except Exception as e:
+            st.exception(f"Exception: {e}")
 
-@app.route('/', methods=['POST'])
-def index_post():
-    # Read the values from the form
-    #user_input = request.form['text']
-    language = request.form['language']
-    gender = request.form['gender']
-    model_name = request.form['model_name']
 
-    # The user speaks into the microphone, triggering function recognize_from_microphone and passing the language code
-    user_input = recognize_from_microphone(language2code(language))
+    if st.session_state["button1"]:
+        if st.checkbox("Button2"):
+            print(f"user_input: {user_input}")
+            # toggle button2 session state
+            st.session_state["button2"] = not st.session_state["button2"]
+            
+            #story = generate_story(user_input, language, model_name, temperature, openai_api_kei)
+            story = 'hello world'
+            print(f"story: {story}")
+            st.text(story)
 
-    # Extract text
-    story = generate_story(user_input, language, model_name, temperature, openai_api_kei)
-    synthetise_speech(story, language, gender)
 
-    # Call render template
-    return render_template(
-        'results.html',
-        original_text=user_input,
-        story=story
+    if st.session_state["button1"] and st.session_state["button2"]:
+        if st.button("Button3"):
+            # toggle button3 session state
+            st.session_state["button3"] = not st.session_state["button3"]
+            synthetise_speech(story, language, gender)
+
+
+    if st.session_state["button3"]:
+        st.write("End")
+
+
+    # Print the session state to make it easier to see what's happening
+    st.write(
+        f"""
+        ## Session state:
+        {st.session_state["button1"]=}
+
+        {st.session_state["button2"]=}
+
+        {st.session_state["button3"]=}
+        """
     )
 
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../llm-agent-01"
+		},
+		{
+			"name": "llm-agent",
+			"path": "../../llm-agent-01/llm-agent"
+		},
+		{
+			"name": "llm-agent-01",
+			"path": "../../llm-agent-01/llm-agent-01"
+		},
+		{
+			"name": "talesGPT-1",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
