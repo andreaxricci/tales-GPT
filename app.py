@@ -44,7 +44,7 @@ def main() -> None:
 
 
     if st.session_state["button1"]:
-        if st.checkbox("Button2"):
+        if st.button("Button2"):
             print(f"user_input: {user_input}")
             # toggle button2 session state
             st.session_state["button2"] = not st.session_state["button2"]
