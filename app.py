@@ -53,7 +53,10 @@ def main() -> None:
                 user_input = recognize_from_microphone(language2code(language))
                 st.session_state["user_input"] = user_input
                 st.write(user_input)
-    
+                
+        except (KeyboardInterrupt, SystemExit):
+            raise
+
         except Exception as e:
             st.exception(f"Exception: {e}")
 
