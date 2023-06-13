@@ -47,19 +47,12 @@ def main() -> None:
     if st.button("A story about ..."):
         # toggle button1 session state  
         st.session_state["button1"] = not st.session_state["button1"]
-        try:
-            with st.spinner("Recording audio..."):
-                # Trigger audio recording
-                user_input = recognize_from_microphone(language2code(language))
-                st.session_state["user_input"] = user_input
-                st.write(user_input)
-                
-        except (KeyboardInterrupt, SystemExit):
-            raise
-
-        except Exception as e:
-            st.exception(f"Exception: {e}")
-
+        
+        with st.spinner("Recording audio..."):
+            # Trigger audio recording
+            user_input = recognize_from_microphone(language2code(language))
+            st.session_state["user_input"] = user_input
+            st.write(user_input)
 
     if st.session_state["button1"]:
         if st.button("Generate Story"):
