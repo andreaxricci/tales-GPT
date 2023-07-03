@@ -17,4 +17,9 @@ Step 3: The story is narrated, using the synthesiser service from Azure Speech
 <img width="1305" alt="Screenshot 2023-06-23 at 09 49 51" src="https://github.com/andreaxricci/talesGPT/assets/62494809/63310faa-7ed0-458a-9d3b-a5b5acbc1996">
 
 
+## To Do's
 
+- Add exceptions handling
+- Incorporate pause button
+- Add option to save story
+- Include image generation, to add visuals
